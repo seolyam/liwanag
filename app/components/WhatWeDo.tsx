@@ -75,7 +75,7 @@ export default function WhatWeDo() {
       <div className="max-w-7xl mx-auto relative z-10">
         {/* Section Title */}
         <div className="mb-20">
-          <h2 className="font-[var(--font-outfit)] text-4xl md:text-5xl text-starlight inline-block relative pb-4">
+          <h2 className="font-[var(--font-outfit)] text-4xl md:text-5xl text-starlight inline-block relative pb-4 ">
             What We Do
             <div className="absolute bottom-0 left-0 w-full flex flex-col gap-1">
               <div className="h-1 bg-golden-star w-full rounded-full" />

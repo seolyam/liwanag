@@ -2,15 +2,15 @@ import Image from "next/image";
 import Link from "next/link";
 
 const quickLinks = [
-  { label: "About Us", href: "#about" },
-  { label: "Our Impact", href: "#gallery" },
-  { label: "Gallery", href: "#gallery" },
+  { label: "About Us", href: "/about" },
+  { label: "Our Impact", href: "/gallery" },
+  { label: "Gallery", href: "/gallery" },
   { label: "FAQ", href: "#" },
 ];
 
 const getInvolved = [
-  { label: "Volunteer", href: "#ways-to-help" },
-  { label: "Donate", href: "#ways-to-help" },
+  { label: "Volunteer", href: "/volunteer" },
+  { label: "Donate", href: "/volunteer" },
   { label: "Sponsors", href: "#" },
   { label: "Careers", href: "#" },
 ];

@@ -50,7 +50,7 @@ export default function Gallery() {
   return (
     <section
       id="gallery"
-      className="py-24 px-6 md:px-12 max-w-7xl mx-auto relative overflow-hidden"
+      className="py-24 px-6 md:px-12 max-w-7xl mx-auto relative overflow-hidden mt-16"
     >
       {/* Ambient Glow */}
       <div className="absolute top-0 right-0 -z-10 w-[500px] h-[500px] bg-golden-star/5 rounded-full blur-[120px]" />
