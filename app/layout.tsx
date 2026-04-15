@@ -22,6 +22,7 @@ const outfit = Outfit({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://liwanag-outreach.vercel.app"),
   title: "Project Liwanag — Lighting the Path of Young Dreams",
   description:
     "Project Liwanag is an outreach initiative by the Google Developer Groups on Campus – USLS, dedicated to inspiring children to believe in their dreams, discover their potential, and move forward with confidence.",
@@ -40,6 +41,27 @@ export const metadata: Metadata = {
     description:
       "An outreach initiative by GDG on Campus – USLS, inspiring children to believe in their dreams.",
     type: "website",
+    url: "https://liwanag-outreach.vercel.app",
+    images: [
+      {
+        url: "/images/logos/Colored Logo.png",
+        width: 1536,
+        height: 768,
+        alt: "Google Developer Groups on Campus - La Salle Bacolod logo",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Project Liwanag — Lighting the Path of Young Dreams",
+    description:
+      "An outreach initiative by GDG on Campus – USLS, inspiring children to believe in their dreams.",
+    images: ["/images/logos/Colored Logo.png"],
+  },
+  icons: {
+    icon: "/images/logos/Colored Logo.png",
+    shortcut: "/images/logos/Colored Logo.png",
+    apple: "/images/logos/Colored Logo.png",
   },
 };
 
