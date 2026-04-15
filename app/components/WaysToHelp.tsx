@@ -3,7 +3,8 @@
 import Image from "next/image";
 import { useEffect, useState } from "react";
 
-const VOLUNTEER_FORM_URL = "YOUR_GOOGLE_FORM_LINK";
+const VOLUNTEER_FORM_URL =
+  "https://docs.google.com/forms/d/e/1FAIpQLScvNijaBnwovBp1DSfgi6V74aV6dE3vxFGMwf55TJO3W7ggGw/viewform";
 const FACEBOOK_PAGE_URL = "https://www.facebook.com/dsc.usls";
 
 type DonateModalProps = {
