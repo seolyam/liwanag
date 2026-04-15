@@ -1,0 +1,16 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "lint ways-to-help",
+			"type": "shell",
+			"command": "pnpm",
+			"args": [
+				"lint",
+				"--",
+				"app/components/WaysToHelp.tsx"
+			],
+			"isBackground": false
+		}
+	]
+}
