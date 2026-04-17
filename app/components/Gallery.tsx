@@ -1,6 +1,22 @@
+"use client";
+
+import { useMemo, useState } from "react";
 import Link from "next/link";
 
-const galleryItems = [
+type GalleryItem = {
+  tag: string;
+  title: string;
+  height: string;
+};
+
+type GalleryProps = {
+  enableCarousel?: boolean;
+  showViewMoreButton?: boolean;
+};
+
+const ITEMS_PER_PAGE = 6;
+
+const galleryItems: GalleryItem[] = [
   {
     tag: "Tag",
     title: "Title1",
@@ -31,9 +47,62 @@ const galleryItems = [
     title: "Title6",
     height: "h-[520px]",
   },
+  {
+    tag: "Tag",
+    title: "Title7",
+    height: "h-[380px]",
+  },
+  {
+    tag: "Tag",
+    title: "Title8",
+    height: "h-[460px]",
+  },
+  {
+    tag: "Tag",
+    title: "Title9",
+    height: "h-[340px]",
+  },
+  {
+    tag: "Tag",
+    title: "Title10",
+    height: "h-[500px]",
+  },
+  {
+    tag: "Tag",
+    title: "Title11",
+    height: "h-[360px]",
+  },
+  {
+    tag: "Tag",
+    title: "Title12",
+    height: "h-[420px]",
+  },
 ];
 
-export default function Gallery() {
+export default function Gallery({
+  enableCarousel = false,
+  showViewMoreButton = true,
+}: GalleryProps) {
+  const [currentPage, setCurrentPage] = useState(0);
+  const totalPages = Math.ceil(galleryItems.length / ITEMS_PER_PAGE);
+
+  const visibleItems = useMemo(() => {
+    if (!enableCarousel) {
+      return galleryItems.slice(0, ITEMS_PER_PAGE);
+    }
+
+    const startIndex = currentPage * ITEMS_PER_PAGE;
+    return galleryItems.slice(startIndex, startIndex + ITEMS_PER_PAGE);
+  }, [currentPage, enableCarousel]);
+
+  const goToPreviousPage = () => {
+    setCurrentPage((page) => Math.max(page - 1, 0));
+  };
+
+  const goToNextPage = () => {
+    setCurrentPage((page) => Math.min(page + 1, totalPages - 1));
+  };
+
   return (
     <section
       id="gallery"
@@ -59,7 +128,7 @@ export default function Gallery() {
       {/* Masonry Gallery */}
       <div className="relative">
         <div className="masonry-grid relative z-10">
-          {galleryItems.map((item) => (
+          {visibleItems.map((item) => (
             <div key={item.title} className="masonry-item group">
               <div className="rounded-2xl overflow-hidden glass-edge transition-all duration-500 hover:translate-y-[-8px]">
                 <div
@@ -85,20 +154,50 @@ export default function Gallery() {
             </div>
           ))}
         </div>
+
+        {enableCarousel && totalPages > 1 && (
+          <div className="mt-10 flex items-center justify-center gap-4">
+            <button
+              type="button"
+              onClick={goToPreviousPage}
+              disabled={currentPage === 0}
+              className="flex h-12 w-12 items-center justify-center rounded-full border border-golden-star/50 text-golden-star transition-all duration-300 hover:bg-golden-star hover:text-text-on-gold disabled:cursor-not-allowed disabled:opacity-35 disabled:hover:bg-transparent disabled:hover:text-golden-star"
+              aria-label="Show previous 6 gallery photos"
+            >
+              <span className="material-symbols-outlined">arrow_back</span>
+            </button>
+
+            <p className="min-w-28 text-center text-sm font-semibold uppercase tracking-[0.2em] text-moonlight-dim">
+              {currentPage + 1} / {totalPages}
+            </p>
+
+            <button
+              type="button"
+              onClick={goToNextPage}
+              disabled={currentPage >= totalPages - 1}
+              className="flex h-12 w-12 items-center justify-center rounded-full border border-golden-star/50 text-golden-star transition-all duration-300 hover:bg-golden-star hover:text-text-on-gold disabled:cursor-not-allowed disabled:opacity-35 disabled:hover:bg-transparent disabled:hover:text-golden-star"
+              aria-label="Show next 6 gallery photos"
+            >
+              <span className="material-symbols-outlined">arrow_forward</span>
+            </button>
+          </div>
+        )}
       </div>
 
       {/* View More Button */}
-      <div className="mt-16 flex justify-center">
-        <Link
-          href="/gallery"
-          className="group flex items-center gap-3 px-10 py-4 rounded-full border-2 border-golden-star text-golden-star font-bold text-lg hover:bg-golden-star hover:text-text-on-gold transition-all duration-500 active:scale-95 shadow-[0_0_20px_rgba(251,191,36,0.1)]"
-        >
-          View More
-          <span className="material-symbols-outlined group-hover:translate-x-1 transition-transform">
-            arrow_forward
-          </span>
-        </Link>
-      </div>
+      {showViewMoreButton && (
+        <div className="mt-16 flex justify-center">
+          <Link
+            href="/gallery"
+            className="group flex items-center gap-3 px-10 py-4 rounded-full border-2 border-golden-star text-golden-star font-bold text-lg hover:bg-golden-star hover:text-text-on-gold transition-all duration-500 active:scale-95 shadow-[0_0_20px_rgba(251,191,36,0.1)]"
+          >
+            View More
+            <span className="material-symbols-outlined group-hover:translate-x-1 transition-transform">
+              arrow_forward
+            </span>
+          </Link>
+        </div>
+      )}
     </section>
   );
 }
