@@ -15,7 +15,7 @@ export default function HomePage() {
         <Hero />
         <About />
         <WhatWeDo />
-        <Gallery />
+        <Gallery enableCarousel showViewMoreButton={false} />
         <WaysToHelp />
         <Sponsors />
       </main>
