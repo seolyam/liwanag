@@ -87,9 +87,7 @@ export default function Hero() {
         <div className="flex flex-col sm:flex-row gap-4 sm:gap-5 mt-7 sm:mt-8 items-center justify-center">
           <Link href="/volunteer" className="btn-primary group">
             Volunteer Now
-            <span className="material-symbols-outlined text-xl group-hover:translate-x-1 transition-transform">
-              arrow_forward
-            </span>
+            
           </Link>
           <Link href="/volunteer" className="btn-secondary">
             Donate Funds

@@ -7,7 +7,7 @@ export default function GalleryPage() {
     <>
       <Header />
       <main className="bg-night-sky">
-        <Gallery />
+        <Gallery enableCarousel showViewMoreButton={false} />
       </main>
       <Footer />
     </>

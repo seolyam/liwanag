@@ -1,13 +1,7 @@
-const sponsorSlots = [
-  { name: "Foundation Group", tier: "Founding Partner" },
-  { name: "Tech Institute", tier: "Technology Partner" },
-  { name: "Impact Ventures", tier: "Community Partner" },
-  { name: "Sustainability Co.", tier: "Advocacy Partner" },
-  { name: "Company Logo 05", tier: "Sponsor Slot" },
-  { name: "Company Logo 06", tier: "Sponsor Slot" },
-  { name: "Company Logo 07", tier: "Sponsor Slot" },
-  { name: "Company Logo 08", tier: "Sponsor Slot" },
-];
+const sponsorSlots = Array.from({ length: 8 }, (_, i) => ({
+  name: `Sponsor ${i + 1}`,
+  tier: "Sponsor Slot",
+}));
 
 export default function Sponsors() {
   return (

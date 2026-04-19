@@ -157,7 +157,7 @@ export default function Footer() {
       {/* Copyright Bar */}
       <div className="relative z-10 max-w-7xl mx-auto px-8 md:px-12 pb-10">
         <div className="pt-8 border-t border-night-sky-bright/10 flex flex-col md:flex-row justify-between items-center gap-4 text-slate-500 text-sm">
-          <p>© 2025 Project Liwanag | GDG on Campus – USLS</p>
+          <p>© 2026 Project Liwanag | GDG on Campus – USLS</p>
           <p>Designed with care for the community</p>
         </div>
       </div>

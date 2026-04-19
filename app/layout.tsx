@@ -58,11 +58,6 @@ export const metadata: Metadata = {
       "An outreach initiative by GDG on Campus – USLS, inspiring children to believe in their dreams.",
     images: ["/images/logos/Colored Logo.png"],
   },
-  icons: {
-    icon: "/images/logos/Colored Logo.png",
-    shortcut: "/images/logos/Colored Logo.png",
-    apple: "/images/logos/Colored Logo.png",
-  },
 };
 
 export default function RootLayout({
