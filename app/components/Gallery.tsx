@@ -2,10 +2,13 @@
 
 import { useMemo, useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 
 type GalleryItem = {
   tag: string;
   title: string;
+  src: string;
+  alt: string;
   height: string;
 };
 
@@ -18,64 +21,74 @@ const ITEMS_PER_PAGE = 6;
 
 const galleryItems: GalleryItem[] = [
   {
-    tag: "Tag",
-    title: "Title1",
+    tag: "Past Outreach",
+    title: "Project Dagtaan",
+    src: "/images/old-outreach/FB_IMG_1776586289707.jpg",
+    alt: "Volunteers facilitating a circle activity with children during Project Dagtaan.",
     height: "h-[320px]",
   },
   {
-    tag: "Tag",
-    title: "Title2",
+    tag: "Past Outreach",
+    title: "Project Dagtaan",
+    src: "/images/old-outreach/FB_IMG_1776586295036.jpg",
+    alt: "Volunteers and children gathered in front of a mural during Project Dagtaan.",
     height: "h-[480px]",
   },
   {
-    tag: "Tag",
-    title: "Title3",
+    tag: "Past Outreach",
+    title: "Project Dagtaan",
+    src: "/images/old-outreach/FB_IMG_1776586297599.jpg",
+    alt: "Children and volunteers showcasing a handmade activity output at Project Dagtaan.",
     height: "h-[400px]",
   },
   {
-    tag: "Tag",
-    title: "Title4",
+    tag: "Past Outreach",
+    title: "Project Dagtaan",
+    src: "/images/old-outreach/FB_IMG_1776586303542.jpg",
+    alt: "Children coloring printed worksheets together during Project Dagtaan.",
     height: "h-[440px]",
   },
   {
-    tag: "Tag",
-    title: "Title5",
+    tag: "Past Outreach",
+    title: "Project Dagtaan",
+    src: "/images/old-outreach/FB_IMG_1776586309881.jpg",
+    alt: "A volunteer talking with children while preparing activity snacks at Project Dagtaan.",
     height: "h-[360px]",
   },
   {
-    tag: "Tag",
-    title: "Title6",
+    tag: "Past Outreach",
+    title: "Project Dagtaan",
+    src: "/images/old-outreach/FB_IMG_1776586318394.jpg",
+    alt: "Volunteers assisting children with their worksheets in an evening session of Project Dagtaan.",
     height: "h-[520px]",
   },
   {
-    tag: "Tag",
-    title: "Title7",
+    tag: "Past Outreach",
+    title: "Project Dagtaan",
+    src: "/images/old-outreach/FB_IMG_1776586328387.jpg",
+    alt: "Children receiving support from volunteers during a group activity at Project Dagtaan.",
     height: "h-[380px]",
   },
   {
-    tag: "Tag",
-    title: "Title8",
+    tag: "Past Outreach",
+    title: "Project Dagtaan",
+    src: "/images/old-outreach/FB_IMG_1776586332732.jpg",
+    alt: "A coding demonstration for children during the learning segment of Project Dagtaan.",
     height: "h-[460px]",
   },
   {
-    tag: "Tag",
-    title: "Title9",
+    tag: "Past Outreach",
+    title: "Project Dagtaan",
+    src: "/images/old-outreach/FB_IMG_1776586397065.jpg",
+    alt: "Volunteers and children collaborating on coloring activities in Project Dagtaan.",
     height: "h-[340px]",
   },
   {
-    tag: "Tag",
-    title: "Title10",
+    tag: "Past Outreach",
+    title: "Project Dagtaan",
+    src: "/images/old-outreach/FB_IMG_1776586433857.jpg",
+    alt: "Children gathered in a community hall during an outreach session of Project Dagtaan.",
     height: "h-[500px]",
-  },
-  {
-    tag: "Tag",
-    title: "Title11",
-    height: "h-[360px]",
-  },
-  {
-    tag: "Tag",
-    title: "Title12",
-    height: "h-[420px]",
   },
 ];
 
@@ -129,17 +142,17 @@ export default function Gallery({
       <div className="relative">
         <div className="masonry-grid relative z-10">
           {visibleItems.map((item) => (
-            <div key={item.title} className="masonry-item group">
+            <div key={item.src} className="masonry-item group">
               <div className="rounded-2xl overflow-hidden glass-edge transition-all duration-500 hover:translate-y-[-8px]">
-                <div
-                  className={`w-full ${item.height} border border-dashed border-golden-star/30 bg-gradient-to-br from-night-sky-surface/85 via-night-sky-mid/70 to-night-sky-light/85 flex flex-col items-center justify-center text-center px-6`}
-                >
-                  <span className="material-symbols-outlined text-golden-star text-5xl mb-3">
-                    image
-                  </span>
-                  <span className="text-[11px] uppercase tracking-[0.28em] text-moonlight-dim">
-                    Photo Placeholder
-                  </span>
+                <div className={`relative w-full ${item.height}`}>
+                  <Image
+                    src={item.src}
+                    alt={item.alt}
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 33vw"
+                  />
+                  <div className="pointer-events-none absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-night-sky/80 to-transparent" />
                 </div>
                 <div className="p-6 bg-night-sky-light/60">
                   <span className="inline-flex items-center gap-2 bg-aurora-rose-deep/20 text-aurora-rose px-3 py-1 rounded-full text-xs font-bold mb-3">
