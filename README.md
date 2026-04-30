@@ -6,7 +6,7 @@ An outreach initiative by the **Google Developer Groups (GDG) on Campus – USLS
 
 ## Overview
 
-Project Liwanag is a comprehensive landing page and informational platform designed to showcase the outreach program's mission, share moments from various events, and encourage community participation through volunteering or sponsorships. 
+Project Liwanag is a comprehensive landing page and informational platform designed to showcase the outreach program's mission, share moments from various events, and encourage community participation through volunteering or partnerships. 
 
 The visual identity is driven by the "Celestial Editorial" / "Nocturne Lumina" design system—featuring a night-sky aesthetic with stars, clouds, and vibrant typography to evoke a sense of hope and discovery.
 
