@@ -11,12 +11,6 @@ const partnerLogos = [
   },
 ];
 
-const partnerSlots = Array.from({ length: 8 }, (_, i) => ({
-  name: `Partner ${i + 1}`,
-  tier: "Partnership Slot",
-  logo: partnerLogos[i] ?? null,
-}));
-
 export default function Sponsors() {
   return (
     <section className="py-24 bg-night-sky-deep overflow-hidden relative">
@@ -43,46 +37,35 @@ export default function Sponsors() {
         <div className="flex flex-col items-center gap-12">
           <div className="w-full max-w-6xl p-1 rounded-3xl bg-gradient-to-b from-night-sky-bright/25 to-transparent">
             <div className="bg-night-sky/80 rounded-[1.4rem] p-8 md:p-10">
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                {partnerSlots.map((slot) => (
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                {partnerLogos.map((partner) => (
                   <div
-                    key={slot.name}
-                    className="group h-full rounded-2xl p-[1px] bg-gradient-to-br from-golden-star/50 via-aurora-rose/30 to-cloud-lavender/40"
+                    key={partner.name}
+                    className="group h-full rounded-2xl p-[1px] bg-gradient-to-br from-golden-star/60 via-aurora-rose/35 to-cloud-lavender/50 shadow-[0_0_45px_rgba(251,191,36,0.18)]"
                   >
-                    <div className="h-full rounded-2xl min-h-60 bg-night-sky-surface/70 border border-white/5 px-4 py-6 flex flex-col items-center justify-center text-center transition-all duration-300 group-hover:-translate-y-1 group-hover:shadow-[0_0_30px_rgba(251,191,36,0.2)]">
-                      <div className="w-28 h-28 rounded-xl bg-night-sky/60 flex items-center justify-center mb-5 overflow-hidden">
-                        {slot.logo ? (
-                          <Image
-                            src={slot.logo.src}
-                            alt={slot.logo.name}
-                            width={120}
-                            height={120}
-                            className="w-full h-full object-contain"
-                          />
-                        ) : (
-                          <span className="material-symbols-outlined text-golden-star text-4xl">
-                            domain
-                          </span>
-                        )}
+                    <div className="h-full rounded-2xl min-h-64 bg-night-sky-surface/75 border border-white/8 px-6 py-8 flex flex-col items-center justify-center text-center transition-all duration-300 group-hover:-translate-y-1 group-hover:shadow-[0_0_40px_rgba(251,191,36,0.25)]">
+                      <div className="w-32 h-32 rounded-2xl bg-night-sky/60 flex items-center justify-center mb-5 overflow-hidden">
+                        <Image
+                          src={partner.src}
+                          alt={partner.name}
+                          width={144}
+                          height={144}
+                          className="w-full h-full object-contain"
+                        />
                       </div>
-                      <p className="text-[11px] uppercase tracking-[0.22em] text-moonlight-dim mb-2">
-                        {slot.logo ? "Partner" : "Logo Placeholder"}
+                      <p className="text-[11px] uppercase tracking-[0.28em] text-moonlight-dim mb-2">
+                        Partner
                       </p>
-                      <h3 className="text-sm font-bold tracking-wide text-starlight">
-                        {slot.logo?.name ?? slot.name}
+                      <h3 className="text-base font-bold tracking-wide text-starlight">
+                        {partner.name}
                       </h3>
-                      <p className="text-xs text-golden-glow/80 mt-1">
-                        {slot.tier}
+                      <p className="text-xs text-golden-glow/90 mt-2">
+                        Official Partner
                       </p>
                     </div>
                   </div>
                 ))}
               </div>
-
-              <p className="mt-8 text-center text-sm text-moonlight-dim">
-                Partner logos will be placed in these highlighted slots as
-                partnerships grow.
-              </p>
             </div>
           </div>
         </div>
