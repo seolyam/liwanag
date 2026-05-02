@@ -1,6 +1,20 @@
-const sponsorSlots = Array.from({ length: 8 }, (_, i) => ({
-  name: `Sponsor ${i + 1}`,
-  tier: "Sponsor Slot",
+import Image from "next/image";
+
+const partnerLogos = [
+  {
+    name: "Balayan Social Development Center",
+    src: "/images/logos/FB_IMG_1777526758173.jpg",
+  },
+  {
+    name: "Kalipay Negrense Foundation",
+    src: "/images/logos/kalipaylogo2.png",
+  },
+];
+
+const partnerSlots = Array.from({ length: 8 }, (_, i) => ({
+  name: `Partner ${i + 1}`,
+  tier: "Partnership Slot",
+  logo: partnerLogos[i] ?? null,
 }));
 
 export default function Sponsors() {
@@ -16,7 +30,7 @@ export default function Sponsors() {
         {/* Section Header */}
         <div className="text-center mb-16">
           <h2 className="font-[var(--font-display)] text-3xl font-bold text-starlight relative inline-block">
-            Our Sponsors
+            Our Partnerships
             <span className="absolute -bottom-2 left-0 w-full h-1 bg-golden-star rounded-full opacity-40" />
           </h2>
           <p className="text-moonlight mt-4 max-w-xl mx-auto">
@@ -30,22 +44,32 @@ export default function Sponsors() {
           <div className="w-full max-w-6xl p-1 rounded-3xl bg-gradient-to-b from-night-sky-bright/25 to-transparent">
             <div className="bg-night-sky/80 rounded-[1.4rem] p-8 md:p-10">
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                {sponsorSlots.map((slot) => (
+                {partnerSlots.map((slot) => (
                   <div
                     key={slot.name}
-                    className="group rounded-2xl p-[1px] bg-gradient-to-br from-golden-star/50 via-aurora-rose/30 to-cloud-lavender/40"
+                    className="group h-full rounded-2xl p-[1px] bg-gradient-to-br from-golden-star/50 via-aurora-rose/30 to-cloud-lavender/40"
                   >
-                    <div className="rounded-2xl min-h-52 bg-night-sky-surface/70 border border-white/5 px-4 py-6 flex flex-col items-center justify-center text-center transition-all duration-300 group-hover:-translate-y-1 group-hover:shadow-[0_0_30px_rgba(251,191,36,0.2)]">
-                      <div className="w-24 h-24 rounded-xl border-2 border-dashed border-golden-star/50 bg-night-sky/60 flex items-center justify-center mb-5">
-                        <span className="material-symbols-outlined text-golden-star text-4xl">
-                          domain
-                        </span>
+                    <div className="h-full rounded-2xl min-h-60 bg-night-sky-surface/70 border border-white/5 px-4 py-6 flex flex-col items-center justify-center text-center transition-all duration-300 group-hover:-translate-y-1 group-hover:shadow-[0_0_30px_rgba(251,191,36,0.2)]">
+                      <div className="w-28 h-28 rounded-xl bg-night-sky/60 flex items-center justify-center mb-5 overflow-hidden">
+                        {slot.logo ? (
+                          <Image
+                            src={slot.logo.src}
+                            alt={slot.logo.name}
+                            width={120}
+                            height={120}
+                            className="w-full h-full object-contain"
+                          />
+                        ) : (
+                          <span className="material-symbols-outlined text-golden-star text-4xl">
+                            domain
+                          </span>
+                        )}
                       </div>
                       <p className="text-[11px] uppercase tracking-[0.22em] text-moonlight-dim mb-2">
-                        Logo Placeholder
+                        {slot.logo ? "Partner" : "Logo Placeholder"}
                       </p>
                       <h3 className="text-sm font-bold tracking-wide text-starlight">
-                        {slot.name}
+                        {slot.logo?.name ?? slot.name}
                       </h3>
                       <p className="text-xs text-golden-glow/80 mt-1">
                         {slot.tier}
@@ -56,8 +80,8 @@ export default function Sponsors() {
               </div>
 
               <p className="mt-8 text-center text-sm text-moonlight-dim">
-                Sponsor logos will be placed in these highlighted slots as
-                partners come in.
+                Partner logos will be placed in these highlighted slots as
+                partnerships grow.
               </p>
             </div>
           </div>
