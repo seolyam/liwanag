@@ -19,7 +19,30 @@ type GalleryProps = {
 
 const ITEMS_PER_PAGE = 6;
 
+const newGalleryItems: GalleryItem[] = Array.from({ length: 34 }, (_, i) => {
+  const heights = [
+    "h-[320px]",
+    "h-[480px]",
+    "h-[400px]",
+    "h-[440px]",
+    "h-[360px]",
+    "h-[520px]",
+    "h-[380px]",
+    "h-[460px]",
+    "h-[340px]",
+    "h-[500px]",
+  ];
+  return {
+    tag: "Recent Outreach",
+    title: "Project Liwanag",
+    src: `/images/ProjLiwanagPosting/${i + 1}.png`,
+    alt: `Project Liwanag outreach photo ${i + 1}`,
+    height: heights[i % heights.length],
+  };
+});
+
 const galleryItems: GalleryItem[] = [
+  ...newGalleryItems,
   {
     tag: "Past Outreach",
     title: "Project Dagtaan",
